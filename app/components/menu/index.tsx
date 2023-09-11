@@ -1,34 +1,18 @@
 import React from "react";
 import "./style.css";
+import { IData } from "@/app/page";
 
 interface Prop {
+  data: IData[];
   menu: string;
   onClick: (menu: string) => void;
 }
 
-export default function Menu({ menu, onClick }: Prop) {
-  const menuList = [
-    {
-      key: "about",
-      label: "About",
-    },
-    {
-      key: "experience",
-      label: "Experience",
-    },
-    {
-      key: "skills",
-      label: "Skills",
-    },
-    {
-      key: "contact",
-      label: "Contact",
-    },
-  ];
+export default function Menu({ data, menu, onClick }: Prop) {
   return (
-    menuList && (
+    data && (
       <div className="grid grid-cols-4 mt-4">
-        {menuList.map((m) => (
+        {data.map((m) => (
           <div
             className="flex justify-center"
             key={m.key}

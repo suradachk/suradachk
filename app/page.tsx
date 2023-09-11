@@ -12,8 +12,9 @@ import { Experience } from "./components/experience";
 import { Skills } from "./components/skills";
 import { Contact } from "./components/contact";
 
-interface IData {
+export interface IData {
   key: string;
+  label: string;
   element: JSX.Element;
 }
 
@@ -23,18 +24,22 @@ export default function Home() {
   const data: IData[] = [
     {
       key: "about",
+      label: "About",
       element: <About />,
     },
     {
-      key: "experience",
-      element: <Experience />,
-    },
-    {
       key: "skills",
+      label: "Skills",
       element: <Skills />,
     },
     {
+      key: "experience",
+      label: "Experience",
+      element: <Experience />,
+    },
+    {
       key: "contact",
+      label: "Contact",
       element: <Contact />,
     },
   ];
@@ -47,7 +52,7 @@ export default function Home() {
             <Toggle toggled={mode} onClick={setMode} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 mt-10">
-            <div className="flex justify-center md:justify-end mr-4">
+            <div className="flex justify-center md:justify-end md:mr-4">
               <div className="card-profile">
                 <Image
                   src={"/images/suradachk.jpg"}
@@ -60,16 +65,36 @@ export default function Home() {
             <div className="md:col-span-2">
               <div className="card-text mt-2 mx-4 md:mr-20">
                 <Fade>
-                  <p> Hi! I'm Suradach , Full Stack Developer ...</p>
+                  <p> 👨‍💻 Hi! I'm Suradach , Full Stack Developer ...</p>
                   <p className="mt-2">
                     "I'm always looking for new opportunities. I enjoy
                     challenging activities and enjoy working."
                   </p>
+                  <div className="mt-4">
+                    <button
+                      className="mx-2"
+                      style={{
+                        backgroundImage: `url(/images/linkin.png)`,
+                        backgroundSize: "cover",
+                        width: "20px",
+                        height: "20px",
+                      }}
+                    />
+                    <button
+                      className="mx-2"
+                      style={{
+                        backgroundImage: `url(/images/github.png)`,
+                        backgroundSize: "cover",
+                        width: "20px",
+                        height: "20px",
+                      }}
+                    />
+                  </div>
                 </Fade>
               </div>
             </div>
           </div>
-          <Menu menu={menu} onClick={setMenu} />
+          <Menu data={data} menu={menu} onClick={setMenu} />
           <div className="grid grid-cols-1 w-full ">
             {data &&
               data
@@ -80,7 +105,9 @@ export default function Home() {
                   </div>
                 ))}
           </div>
-          <div className="flex justify-center mb-2">Copyright By SURADACHK</div>
+          <div className="flex justify-center mb-2">
+            <div>Copyright 🚀 SURADACHK</div>
+          </div>
         </div>
       </div>
     </>
