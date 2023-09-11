@@ -11,7 +11,7 @@ interface IExperience {
 
 export const Experience: React.FC<{}> = () => {
   return (
-    <Fade>
+    <Fade cascade damping={0.1}>
       <div className="flex flex-col">
         <div className="my-2">
           <p className="font-bold text-xl">🏢 Work Experience</p>

@@ -49,20 +49,18 @@
   "experience": [
     {
       "company": "O S D Co., LTd.",
-      "position": "Full Time: Senior Software Engineer",
+      "position": "Full Time: Senior Software Developer",
       "detail": [
-        "Maintained Web App.Stack: NestJs, ReactJs(Antd),TypeScript, PostgreSQL, MongoDB, Prisma",
-        "Maintained Web App.Stack: Node.js, React, PostgreSQL, MongoDB, TypeORM",
-        "Maintained and improved Omnichannel customer support platform on Messenger & Line channels",
-        "Built a channel for check-in location on Line Chat to mitigate the risk of COVID-19",
-        "Built RESTful API.Stack: Node.js, Express, Sequelize, MySQL"
+        "Maintained Web App (CRM). Stack: NestJs, ReactJs(Antd),TypeScript, PostgreSQL, MongoDB, Prisma",
+        "Maintained Web App (DBMS). Stack: Node.js, React, PostgreSQL, MongoDB, TypeORM",
+        "Maintained Web App (Messenger & Line channels) Stack: Node.js, React, MongoDB",
+        "Built RESTful API. Stack: Node.js, Express, Sequelize, MySQL"
       ],
       "date": "Apr 2020 - Present"
     }
   ],
   "contact": {
     "email": "suradach.kan@gmail.com",
-    "phone": "+6697-285-4769",
     "website": "www.suradachk.com",
     "github": "https://github.com/suradachk",
     "linkin": "in/suradach-kanphaisit-2b85b6202",

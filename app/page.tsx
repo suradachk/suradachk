@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Fade } from "react-awesome-reveal";
 
@@ -11,6 +11,9 @@ import { About } from "./components/about";
 import { Experience } from "./components/experience";
 import { Skills } from "./components/skills";
 import { Contact } from "./components/contact";
+import { TypeAnimation } from "react-type-animation";
+import ReactAudioPlayer from "react-audio-player";
+import { SunMoon } from "./components/sunMoon";
 
 export interface IData {
   key: string;
@@ -40,9 +43,10 @@ export default function Home() {
     {
       key: "contact",
       label: "Contact",
-      element: <Contact />,
+      element: <Contact mode={mode} />,
     },
   ];
+
   return (
     <>
       <div>
@@ -51,25 +55,27 @@ export default function Home() {
           <div className="relative flex justify-end h-10 w-full">
             <Toggle toggled={mode} onClick={setMode} />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 mt-10">
-            <div className="flex justify-center md:justify-end md:mr-4">
-              <div className="card-profile">
-                <Image
-                  src={"/images/suradachk.jpg"}
-                  width={500}
-                  height={500}
-                  alt="suradachk"
-                />
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 mt-10">
+            <div className="flex justify-center ">
+              <Fade cascade damping={0.1}>
+                <SunMoon mode={mode} />
+              </Fade>
             </div>
             <div className="md:col-span-2">
               <div className="card-text mt-2 mx-4 md:mr-20">
                 <Fade>
-                  <p> 👨‍💻 Hi! I'm Suradach , Full Stack Developer ...</p>
-                  <p className="mt-2">
-                    "I'm always looking for new opportunities. I enjoy
-                    challenging activities and enjoy working."
-                  </p>
+                  <TypeAnimation
+                    sequence={[
+                      "👨‍💻 Hi! I'm SURADACH , Full Stack Developer ...",
+                      5000,
+                      "👨‍💻 I'm always looking for new opportunities. I enjoy challenging activities and enjoy working...",
+                      5000,
+                    ]}
+                    wrapper="span"
+                    speed={20}
+                    style={{ fontSize: "1.5em", display: "inline-block" }}
+                    repeat={Infinity}
+                  />
                   <div className="mt-4">
                     <button
                       className="mx-2"

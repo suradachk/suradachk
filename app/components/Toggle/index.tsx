@@ -10,7 +10,7 @@ export default function Toggle({ toggled, onClick }: Prop) {
   return (
     <div
       onClick={() => onClick(!toggled)}
-      className={`toggle${toggled ? " night" : ""}`}
+      className={`toggle ${toggled ? "night" : "day"}`}
     >
       <div className="notch">
         <div className="crater" />

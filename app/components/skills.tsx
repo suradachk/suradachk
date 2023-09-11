@@ -3,7 +3,7 @@ import { Fade } from "react-awesome-reveal";
 
 export const Skills: React.FC<{}> = () => {
   return (
-    <Fade>
+    <Fade cascade damping={0.1}>
       <div className="grid grid-cols-1 md:grid-cols-3 ">
         <div className="my-2">
           <p className="font-bold text-xl">🚀 Languages</p>

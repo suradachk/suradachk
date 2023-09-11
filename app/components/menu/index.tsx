@@ -11,7 +11,7 @@ interface Prop {
 export default function Menu({ data, menu, onClick }: Prop) {
   return (
     data && (
-      <div className="grid grid-cols-4 mt-4">
+      <div className="grid grid-cols-4 mt-6">
         {data.map((m) => (
           <div
             className="flex justify-center"
@@ -19,7 +19,7 @@ export default function Menu({ data, menu, onClick }: Prop) {
             onClick={() => onClick(m.key)}
           >
             <div className={`menu ${menu === m.key ? "active" : ""}`}>
-              {m.label}
+              <p className="font-bold">{m.label}</p>
             </div>
           </div>
         ))}

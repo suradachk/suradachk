@@ -327,13 +327,13 @@ export default function Stars({ mode }: Prop) {
               autoPlay: true,
               background: {
                 color: {
-                  value: "#ffffff",
+                  value: "#add8e6",
                 },
                 image: "",
                 position: "",
                 repeat: "",
                 size: "",
-                opacity: 1,
+                // opacity: 1,
               },
               backgroundMask: {
                 composite: "destination-out",
