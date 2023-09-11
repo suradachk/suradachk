@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.main {
-  width: 100%;
-  height: 100vh;
-}
-
-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .content {
   position: absolute;
   width: 100%;
@@ -58,19 +47,4 @@ video {
   filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
   display: flex;
   flex-direction: column;
-}
-
-.menu {
-  cursor: pointer;
-}
-
-.menu:after {
-  display: block;
-  content: "";
-  border-bottom: solid 3px;
-  transform: scaleX(0);
-  transition: transform 250ms ease-in-out;
-}
-.menu:hover:after {
-  transform: scaleX(1);
 }

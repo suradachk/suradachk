@@ -2,7 +2,12 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
 
-const inter = Space_Mono({ weight: "400", subsets: ["latin"] });
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "SURADACHK",
@@ -17,9 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="favicon.ico" />
+        <link rel="icon" href="/images/favicon.ico" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={spaceMono.className}>{children}</body>
     </html>
   );
 }
