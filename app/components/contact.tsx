@@ -33,7 +33,7 @@ const Contact: React.FC<Prop> = ({ user }) => {
             </div>
             <div className="flex space-x-4 m-2">
               <Image
-                src={`/images/linkIn.png`}
+                src={`/images/linkin.png`}
                 alt={`linkin`}
                 width={100}
                 height={100}

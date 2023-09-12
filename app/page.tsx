@@ -142,7 +142,7 @@ export default function Home() {
               ))}
         </div>
 
-        <div className="flex justify-center mb-2">
+        <div className="flex justify-center mb-4">
           <p className="font-bold">Copyright 🚀 SURADACHK</p>
         </div>
       </div>
