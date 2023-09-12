@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { IData } from "../layout";
+import { IData } from "@/app/page";
 
 interface Prop {
   data: IData[];
