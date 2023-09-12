@@ -5,10 +5,10 @@ import { Fade } from "react-awesome-reveal";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 
-import Toggle from "./components/Toggle";
-import Menu from "./components/Menu";
-import Stars from "./components/Stars";
-import SunMoon from "./components/SunMoon";
+import Toggle from "./components/toggle";
+import Menu from "./components/menu";
+import Stars from "./components/stars";
+import SunMoon from "./components/sunMoon";
 import { TypeAnimation } from "react-type-animation";
 import axios from "axios";
 import { IUserData } from "./types/user-type";

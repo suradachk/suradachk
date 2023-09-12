@@ -1,7 +1,7 @@
 import { Fade } from "react-awesome-reveal";
 import { Fragment } from "react";
 import { IExperienceDetail, IUserData } from "../types/user-type";
-import SectionTitle from "./SectionTitle";
+import SectionTitle from "./sectionTitle";
 
 interface Prop {
   user: IUserData | undefined;

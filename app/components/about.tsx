@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { Fade } from "react-awesome-reveal";
 import { IUserData } from "../types/user-type";
-import SectionTitle from "./SectionTitle";
+import SectionTitle from "./sectionTitle";
 
 interface Prop {
   user: IUserData | undefined;

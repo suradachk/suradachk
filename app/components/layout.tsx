@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { Fade } from "react-awesome-reveal";
 import { TypeAnimation } from "react-type-animation";
-import Toggle from "./Toggle";
+import Toggle from "./toggle";
 import { About } from "./about";
 import { Contact } from "./contact";
 import { Experience } from "./experience";
-import Menu from "./Menu";
+import Menu from "./menu";
 import { Skills } from "./skills";
-import Stars from "./Stars";
-import { SunMoon } from "./SunMoon";
+import Stars from "./stars";
+import { SunMoon } from "./sunMoon";
 import { IUserData } from "../types/user-type";
 
 interface Prop {

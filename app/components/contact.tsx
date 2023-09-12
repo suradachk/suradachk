@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import Link from "next/link";
 import { IUserData } from "../types/user-type";
-import SectionTitle from "./SectionTitle";
+import SectionTitle from "./sectionTitle";
 interface Prop {
   user: IUserData | undefined;
 }
