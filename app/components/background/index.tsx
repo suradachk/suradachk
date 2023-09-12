@@ -7,7 +7,7 @@ interface Prop {
   mode: boolean;
 }
 
-export default function Stars({ mode }: Prop) {
+export default function BackGround({ mode }: Prop) {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);

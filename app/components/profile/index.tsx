@@ -4,7 +4,7 @@ interface Prop {
   mode: boolean;
 }
 
-const SunMoon = ({ mode }: Prop) => {
+const Profile = ({ mode }: Prop) => {
   return (
     <>
       {mode ? (
@@ -32,4 +32,4 @@ const SunMoon = ({ mode }: Prop) => {
   );
 };
 
-export default SunMoon;
+export default Profile;

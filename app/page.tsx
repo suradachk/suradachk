@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 
 import Switch from "./components/switch";
 import Menu from "./components/menu";
-import Stars from "./components/background";
-import SunMoon from "./components/sunMoon";
+import BackGround from "./components/background";
+import Profile from "./components/profile";
 import { TypeAnimation } from "react-type-animation";
 import axios from "axios";
 import { IUserData } from "./types/user-type";
@@ -87,7 +87,7 @@ export default function Home() {
 
   return (
     <>
-      <Stars mode={mode} />
+      <BackGround mode={mode} />
       <div className="content" style={{ color: mode ? "white" : "black" }}>
         <div className="relative flex justify-end h-10 w-full">
           <Switch mode={mode} onClick={hadleSetMode} />
@@ -95,13 +95,12 @@ export default function Home() {
         <div className="grid grid-cols-1 mt-10 lg:grid-cols-3">
           <div className="flex justify-center lg:justify-end " id="repulse-div">
             <Fade cascade damping={0.1}>
-              <SunMoon mode={mode} />
+              <Profile mode={mode} />
             </Fade>
           </div>
           <div className="col-span-2">
             <div className="card-text mx-4 mt-10  md:mx-20">
               <Fade>
-                {/* I enjoy challenging activities and enjoy working... */}
                 <TypeAnimation
                   sequence={[
                     "👨‍💻 Hi! I'm SURADACH , Full Stack Developer..",
