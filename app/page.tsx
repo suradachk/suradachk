@@ -101,6 +101,7 @@ export default function Home() {
           <div className="col-span-2">
             <div className="card-text mx-4 mt-10  md:mx-20">
               <Fade>
+                {/* I enjoy challenging activities and enjoy working... */}
                 <TypeAnimation
                   sequence={[
                     "👨‍💻 Hi! I'm SURADACH , Full Stack Developer..",
