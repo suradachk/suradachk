@@ -28,6 +28,18 @@ export async function GET() {
             "High School Science,Math | May 2009 - May 2015 Grade point average:3.64",
         },
       },
+      status: {
+        university: {
+          name: "Pibulsongkram Rajabhat University",
+          details:
+            "Bachelor's degree computer engineering | July 2015 - Demcember 2019 Grade point average:3.14",
+        },
+        school: {
+          name: "Nabot Pittayakhom School",
+          details:
+            "High School Science,Math | May 2009 - May 2015 Grade point average:3.64",
+        },
+      },
     },
     skills: {
       languages: [
@@ -85,7 +97,7 @@ export async function GET() {
       email: "suradach.kan@gmail.com",
       website: "https://suradachk.com",
       github: "https://github.com/suradachk",
-      linkin: "suradach-kanphaisit-2b85b6202",
+      linkin: "https://www.linkedin.com/in/suradachk",
     },
   };
 

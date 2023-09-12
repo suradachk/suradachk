@@ -44,14 +44,14 @@ export default function Home() {
       element: <About user={user} />,
     },
     {
-      key: "skills",
-      label: "Skills",
-      element: <Skills user={user} />,
-    },
-    {
       key: "experience",
       label: "Experience",
       element: <Experience user={user} />,
+    },
+    {
+      key: "skills",
+      label: "Skills",
+      element: <Skills user={user} />,
     },
     {
       key: "contact",

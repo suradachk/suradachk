@@ -41,7 +41,7 @@ const Contact: React.FC<Prop> = ({ user }) => {
                 style={{ width: "40px", height: "auto" }}
               />
               <Link
-                href={` https://linkedin.com/in/${user.contact.linkin}`}
+                href={user.contact.linkin}
                 target="_blank"
                 className="my-2 text-xs md:text-lg"
               >
