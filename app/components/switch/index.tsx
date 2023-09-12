@@ -2,15 +2,15 @@ import React from "react";
 import "./style.css";
 
 interface Prop {
-  toggled: boolean;
+  mode: boolean;
   onClick: () => void;
 }
 
-export default function Toggle({ toggled, onClick }: Prop) {
+export default function Switch({ mode, onClick }: Prop) {
   return (
     <div
       onClick={() => onClick()}
-      className={`toggle ${toggled ? "night" : "day"}`}
+      className={`toggle ${mode ? "night" : "day"}`}
     >
       <div className="notch">
         <div className="crater" />

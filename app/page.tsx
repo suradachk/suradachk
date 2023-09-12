@@ -5,9 +5,9 @@ import { Fade } from "react-awesome-reveal";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 
-import Toggle from "./components/toggle";
+import Switch from "./components/switch";
 import Menu from "./components/menu";
-import Stars from "./components/stars";
+import Stars from "./components/background";
 import SunMoon from "./components/sunMoon";
 import { TypeAnimation } from "react-type-animation";
 import axios from "axios";
@@ -90,7 +90,7 @@ export default function Home() {
       <Stars mode={mode} />
       <div className="content" style={{ color: mode ? "white" : "black" }}>
         <div className="relative flex justify-end h-10 w-full">
-          <Toggle toggled={mode} onClick={hadleSetMode} />
+          <Switch mode={mode} onClick={hadleSetMode} />
         </div>
         <div className="grid grid-cols-1 mt-10 lg:grid-cols-3">
           <div className="flex justify-center lg:justify-end " id="repulse-div">

@@ -1,10 +1,9 @@
 import { Fade } from "react-awesome-reveal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 
 import Link from "next/link";
 import { IUserData } from "../types/user-type";
-import SectionTitle from "./sectionTitle";
+import SectionTitle from "./title";
 interface Prop {
   user: IUserData | undefined;
 }

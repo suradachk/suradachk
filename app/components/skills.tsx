@@ -4,7 +4,7 @@ import { Fade } from "react-awesome-reveal";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { IUserData } from "../types/user-type";
-import SectionTitle from "./sectionTitle";
+import SectionTitle from "./title";
 
 interface Prop {
   user: IUserData | undefined;
