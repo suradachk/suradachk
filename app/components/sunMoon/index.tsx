@@ -4,7 +4,7 @@ interface Prop {
   mode: boolean;
 }
 
-export const SunMoon = ({ mode }: Prop) => {
+const SunMoon = ({ mode }: Prop) => {
   return (
     <>
       {mode ? (
@@ -31,3 +31,5 @@ export const SunMoon = ({ mode }: Prop) => {
     </>
   );
 };
+
+export default SunMoon;

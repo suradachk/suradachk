@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 import Toggle from "./components/Toggle";
 import Menu from "./components/Menu";
 import Stars from "./components/Stars";
+import SunMoon from "./components/SunMoon";
 import { TypeAnimation } from "react-type-animation";
-import { SunMoon } from "./components/SunMoon";
 import axios from "axios";
 import { IUserData } from "./types/user-type";
 
