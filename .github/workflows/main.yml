@@ -1,0 +1,26 @@
+name: 🚀 Monitor Pull and Push Requests
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Pull Request
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "👨‍💻 A pull request was opened or synchronized."
+          # Add your custom commands or scripts here
+
+      - name: Check Push Event
+        if: github.event_name == 'push'
+        run: |
+          echo "👨‍💻 A push event occurred."
+          # Add your custom commands or scripts here
