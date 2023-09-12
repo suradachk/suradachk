@@ -1,4 +1,4 @@
-name: 🚀 Monitor Pull and Push Requests
+name: 🚀 Monitor Requests
 
 on:
   pull_request:
