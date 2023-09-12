@@ -13,6 +13,7 @@
     0px 0px 0px 20px rgba(202, 202, 202, 0.2),
     0px 0px 0px 40px rgba(153, 152, 149, 0.1),
     0px 0px 0px 60px rgba(7, 7, 7, 0.05);
+  animation: imageAnimate 5s linear infinite;
 }
 
 .face {
@@ -195,6 +196,20 @@
   animation-delay: 0.2s;
   border-radius: 20%;
   transition: all 0.3s ease-out;
+}
+
+@keyframes imageAnimate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-1rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes star1 {

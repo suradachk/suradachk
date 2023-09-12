@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { IData } from "@/app/page";
+import { IData } from "../layout";
 
 interface Prop {
   data: IData[];
@@ -12,14 +12,16 @@ export default function Menu({ data, menu, onClick }: Prop) {
   return (
     data && (
       <div className="grid grid-cols-4 mt-6">
-        {data.map((m) => (
+        {data.map((m: IData) => (
           <div
             className="flex justify-center"
             key={m.key}
             onClick={() => onClick(m.key)}
           >
             <div className={`menu ${menu === m.key ? "active" : ""}`}>
-              <p className="font-bold">{m.label}</p>
+              <a href={`#${m.key}`} className="font-bold">
+                {m.label}
+              </a>
             </div>
           </div>
         ))}

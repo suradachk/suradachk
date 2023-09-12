@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* styles.css or App.css */
+@import "~@fortawesome/fontawesome-free/css/all.css"; /* Import Font Awesome styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: url("https://uploads-ssl.webflow.com/62e3ee10882dc50bcae8d07a/631a5d4631d4c55a475f3e34_noise-50.png");
+  background-color: #16171b;
+  animation: moveBackground 10s linear infinite;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-overflow-x: hidden;
+}
+
 .content {
   position: absolute;
   width: 100%;
@@ -86,14 +105,6 @@
   z-index: 1;
 }
 
-/* .card-profile img {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-  animation: floatImage 4s ease-in-out infinite;
-} */
-
 @keyframes floatImage {
   0% {
     transform: translateY(0);
@@ -118,4 +129,37 @@
   filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
   display: flex;
   flex-direction: column;
+}
+
+.bounce {
+  transition: all 0.3s ease-out;
+}
+
+.bounce:hover {
+  display: inline-block;
+  animation: rubberband 0.8s ease-out;
+}
+
+@keyframes rubberband {
+  0% {
+    transform: scaleX(1);
+  }
+  40% {
+    transform: scaleX(1.12) scaleY(0.75);
+  }
+  55% {
+    transform: scaleX(0.85) scaleY(1);
+  }
+  65% {
+    transform: scaleX(1.09) scaleY(0.85);
+  }
+  75% {
+    transform: scaleX(0.9) scaleY(1);
+  }
+  90% {
+    transform: scaleX(1.05) scaleY(0.95);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
 }

@@ -2,6 +2,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
 
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
   style: ["normal", "italic"],
