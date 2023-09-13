@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import { IData } from "@/app/page";
+import Link from "next/link";
 
 interface Prop {
   data: IData[];
@@ -19,9 +20,9 @@ export default function Menu({ data, menu, onClick }: Prop) {
             onClick={() => onClick(m.key)}
           >
             <div className={`menu ${menu === m.key ? "active" : ""}`}>
-              <a href={`#${m.key}`} className="font-bold">
+              <Link href={`#${m.key}`} className="font-bold">
                 {m.label}
-              </a>
+              </Link>
             </div>
           </div>
         ))}
