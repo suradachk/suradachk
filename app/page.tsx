@@ -103,17 +103,19 @@ export default function Home() {
               <Fade>
                 <TypeAnimation
                   sequence={[
-                    "👨‍💻 Hi! I'm SURADACH , Full Stack Developer..",
+                    "👨‍💻 Hi! I'm SURADACH , Full Stack Developer 3 years+ ",
                     3000,
-                    "👨‍💻 Hi! I'm SURADACH , Full Stack Developer.. I'm always looking for new opportunities.",
+                    "👨‍💻 Hi! I'm SURADACH , Full Stack Developer 3 years+ ...",
                     3000,
-                    "👨‍💻 Hi! I'm SURADACH , Full Stack Developer.. I like challenging activities and enjoy working.",
+                    "👨‍💻 Hi! I'm SURADACH , Full Stack Developer 3 years+ , I like challenging activities and enjoy working ",
+                    3000,
+                    "👨‍💻 Hi! I'm SURADACH , Full Stack Developer 3 years+ , I like challenging activities and enjoy working ☺️ ",
                     3000,
                   ]}
                   wrapper="span"
                   speed={20}
                   style={{ fontSize: "1.5em", display: "inline-block" }}
-                  repeat={Infinity}
+                  repeat={undefined}
                 />
               </Fade>
             </div>

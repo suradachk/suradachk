@@ -22,7 +22,7 @@ const Contact: React.FC<Prop> = ({ user }) => {
                 width={100}
                 height={100}
                 loading="lazy"
-                style={{ width: "40px", height: "auto" }}
+                style={{ width: "40px", height: "40px" }}
               />
               <Link
                 href={`mailto:${user.contact.email}`}
@@ -38,7 +38,7 @@ const Contact: React.FC<Prop> = ({ user }) => {
                 width={100}
                 height={100}
                 loading="lazy"
-                style={{ width: "40px", height: "auto" }}
+                style={{ width: "40px", height: "40px" }}
               />
               <Link
                 href={user.contact.linkin}
@@ -55,7 +55,7 @@ const Contact: React.FC<Prop> = ({ user }) => {
                 width={100}
                 height={100}
                 loading="lazy"
-                style={{ width: "40px", height: "auto" }}
+                style={{ width: "40px", height: "40px" }}
               />
               <Link
                 href={user.contact.github}
@@ -72,7 +72,7 @@ const Contact: React.FC<Prop> = ({ user }) => {
                 width={100}
                 height={100}
                 loading="lazy"
-                style={{ width: "40px", height: "auto" }}
+                style={{ width: "40px", height: "40px" }}
               />
               <Link
                 href={user.contact.website}
