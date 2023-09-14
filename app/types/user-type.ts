@@ -11,6 +11,7 @@ export interface IPersonalInfo {
   birthday: string;
   email: string;
   hobby: IPersonalHobby;
+  militaryStatus: string;
 }
 
 export interface IUniversityInfo {

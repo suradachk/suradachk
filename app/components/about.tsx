@@ -31,6 +31,9 @@ const About: React.FC<Prop> = ({ user }) => {
                 )}{" "}
                 years old)
               </p>
+              <p className="mt-2 text-lg">
+                ~ Military Status:{user.about.personal.militaryStatus}
+              </p>
             </div>
           </div>
           <div className="my-4">

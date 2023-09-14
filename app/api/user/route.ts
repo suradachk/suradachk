@@ -15,20 +15,9 @@ export async function GET() {
           movie: "Anime / Marvel Universe / K-Dramas",
           games: "Dota2 / Valorant",
         },
+        militaryStatus: "Conscripted",
       },
       education: {
-        university: {
-          name: "Pibulsongkram Rajabhat University",
-          details:
-            "Bachelor's degree computer engineering | July 2015 - Demcember 2019 Grade point average:3.14",
-        },
-        school: {
-          name: "Nabot Pittayakhom School",
-          details:
-            "High School Science,Math | May 2009 - May 2015 Grade point average:3.64",
-        },
-      },
-      status: {
         university: {
           name: "Pibulsongkram Rajabhat University",
           details:

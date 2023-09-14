@@ -133,6 +133,7 @@ body {
 
 .bounce {
   transition: all 0.3s ease-out;
+  cursor: pointer;
 }
 
 .bounce:hover {
