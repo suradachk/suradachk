@@ -82,6 +82,24 @@ const Contact: React.FC<Prop> = ({ user }) => {
                 {user.contact.website}
               </Link>
             </div>
+            <div className="flex space-x-4 m-2">
+              <Image
+                src={`/images/resume.png`}
+                alt={`website`}
+                width={100}
+                height={100}
+                loading="lazy"
+                style={{ width: "40px", height: "40px" }}
+              />
+              <Link
+                href={`/api/resume`}
+                target="_blank"
+                className="my-2 text-xs md:text-lg"
+                download="suradachk.pdf"
+              >
+                Resume
+              </Link>
+            </div>
           </div>
         </Fade>
       )}

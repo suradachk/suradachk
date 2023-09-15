@@ -37,7 +37,7 @@ export default function Home() {
     getUser();
   }, []);
 
-  const data: IData[] = [
+  const pages: IData[] = [
     {
       key: "about",
       label: "About",
@@ -121,11 +121,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Menu data={data} menu={menu} onClick={setMenu} />
+        <Menu data={pages} menu={menu} onClick={setMenu} />
 
         <div className="grid grid-cols-1 w-full ">
-          {data &&
-            data
+          {pages &&
+            pages
               .filter((x: IData) => x.key === menu)
               .map((item: IData) => (
                 <div key={item.key} className="card-text m-4 md:mx-20">
