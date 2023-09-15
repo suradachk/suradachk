@@ -14,7 +14,7 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: "SURADACHK",
-  description: "my portfolio",
+  description: "MY RESUME",
 };
 
 export default function RootLayout({
