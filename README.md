@@ -1,16 +1,19 @@
-### Hi there 👋
+[![Header](https://raw.githubusercontent.com/suradachk/suradachk/main/public/images/suradachk-bg.png?raw=true "Header")](https://github.com/AntonioErdeljac)
 
-<!--
-**suradachk/suradachk** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
-Here are some ideas to get you started:
+## 👋 Hello! 
+Software Engineer with 3+ years of experience.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+
+## 🛠️ Technologies & Tools
+![](https://img.shields.io/badge/Code-JavaScript-informational?style=flat&color=informational&logo=javascript)
+![](https://img.shields.io/badge/Code-TypeScript-informational?style=flat&color=informational&logo=typescript)
+![](https://img.shields.io/badge/Code-React-informational?style=flat&color=informational&logo=react)
+![](https://img.shields.io/badge/Code-Node-informational?style=flat&color=informational&logo=node.js)
+![](https://img.shields.io/badge/Code-Html-informational?style=flat&color=informational&logo=html5)
+![](https://img.shields.io/badge/Code-CSS-informational?style=flat&color=informational&logo=css3)
+![](https://img.shields.io/badge/Lib-Nestjs-informational?style=flat&color=red&logo=nestjs)
+![](https://img.shields.io/badge/ORM-Prisma-informational?style=flat&color=yellow&logo=prisma)
+![](https://img.shields.io/badge/DB-Mongodb-informational?style=flat&color=green&logo=mongodb)
+![](https://img.shields.io/badge/DB-Postgresql-informational?style=flat&color=green&logo=postgresql)
+
