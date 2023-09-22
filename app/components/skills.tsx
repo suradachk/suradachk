@@ -60,7 +60,7 @@ const Skills: React.FC<Prop> = ({ user }) => {
               ))}
             </div>
             <div className="mb-6">
-              <p className="font-bold text-xl">🔧 Tools</p>
+              <p className="font-bold text-xl">🛠️ Tools</p>
               {user.skills.tools.map((item: string, index: number) => (
                 <p key={index} className="mt-2 text-lg">
                   ~ {item}
