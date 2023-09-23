@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="viewport" content="viewport-fit=cover" />
         <link rel="icon" href="/images/favicon.ico" />
       </head>
       <body className={spaceMono.className}>{children}</body>
