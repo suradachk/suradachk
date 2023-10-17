@@ -1,4 +1,4 @@
-[![Header](https://raw.githubusercontent.com/suradachk/suradachk/main/public/images/suradachk-bg.png?raw=true "Header")](https://github.com/AntonioErdeljac)
+[![Header](https://raw.githubusercontent.com/suradachk/suradachk/main/public/images/suradachk-bg.png?raw=true "Header")](https://github.com/suradachk)
 
 
 ## 👋 Hello! 
