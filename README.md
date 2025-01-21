@@ -1,8 +1,8 @@
-[![Header](https://raw.githubusercontent.com/suradachk/suradachk/main/public/images/suradachk-bg.png?raw=true "Header")](https://github.com/AntonioErdeljac)
+[![Header](https://raw.githubusercontent.com/suradachk/suradachk/main/public/images/suradachk-bg.png?raw=true "Header")](https://suradachk.com)
 
 
 ## 👋 Hello! 
-Software Engineer with 3+ years of experience.
+Software Engineer with 4+ years of experience.
 
 
 ## 🛠️ Technologies & Tools
