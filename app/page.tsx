@@ -5,6 +5,8 @@ import { Fade } from "react-awesome-reveal";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 
+import dayjs from "dayjs";
+
 import Switch from "./components/switch";
 import Menu from "./components/menu";
 import BackGround from "./components/background";
@@ -103,13 +105,27 @@ export default function Home() {
               <Fade>
                 <TypeAnimation
                   sequence={[
-                    "👨‍💻 Hi! I'm SURADACH , Full Stack Developer 3 years+ ",
+                    `👨‍💻 Hi! I'm SURADACH , Full Stack Developer ${dayjs(
+                      new Date()
+                    ).diff(dayjs("2020-04-01"), "year")} years+ `,
                     3000,
-                    "👨‍💻 Hi! I'm SURADACH , Full Stack Developer 3 years+ ...",
+                    `👨‍💻 Hi! I'm SURADACH , Full Stack Developer ${dayjs(
+                      new Date()
+                    ).diff(dayjs("2020-04-01"), "year")} years+ ...`,
                     3000,
-                    "👨‍💻 Hi! I'm SURADACH , Full Stack Developer 3 years+ , I like challenging activities and enjoy working ",
+                    `👨‍💻 Hi! I'm SURADACH , Full Stack Developer ${dayjs(
+                      new Date()
+                    ).diff(
+                      dayjs("2020-04-01"),
+                      "year"
+                    )} years+ , I like challenging activities and enjoy working `,
                     3000,
-                    "👨‍💻 Hi! I'm SURADACH , Full Stack Developer 3 years+ , I like challenging activities and enjoy working ☺️ ",
+                    `👨‍💻 Hi! I'm SURADACH , Full Stack Developer ${dayjs(
+                      new Date()
+                    ).diff(
+                      dayjs("2020-04-01"),
+                      "year"
+                    )} years+ , I like challenging activities and enjoy working ☺️ `,
                     3000,
                   ]}
                   wrapper="span"
@@ -136,8 +152,7 @@ export default function Home() {
                       type: "spring",
                       stiffness: 260,
                       damping: 20,
-                    }}
-                  >
+                    }}>
                     {item.element}
                   </motion.div>
                 </div>

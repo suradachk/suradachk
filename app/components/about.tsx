@@ -15,7 +15,7 @@ const About: React.FC<Prop> = ({ user }) => {
           <SectionTitle title="About me" subtitle="introduction" />
           <div className="my-4">
             <div className="flex justify-start">
-              <p className="font-bold text-xl">🧑🏻 Personal Profile</p>
+              <p className="font-bold text-xl">🧑🏻 Personal Profile </p>
             </div>
             <div className="flex flex-col">
               <p className="mt-2 text-lg">~ Name: {user.about.personal.name}</p>
@@ -23,13 +23,12 @@ const About: React.FC<Prop> = ({ user }) => {
                 ~ Nick Name: {user.about.personal.nickName}
               </p>
               <p className="mt-2 text-lg">
-                ~ Date Of Birth:{" "}
-                {dayjs(user.about.personal.birthday).format("DD MMMM YYYY")} (
-                {dayjs(new Date()).diff(
+                {`~ Date Of Birth: ${dayjs(user.about.personal.birthday).format(
+                  "DD MMMM YYYY"
+                )} (${dayjs(new Date()).diff(
                   dayjs(user.about.personal.birthday),
                   "year"
-                )}{" "}
-                years old)
+                )} years old)`}
               </p>
               <p className="mt-2 text-lg">
                 ~ Military Status: {user.about.personal.militaryStatus}
