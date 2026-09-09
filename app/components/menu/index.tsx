@@ -1,6 +1,10 @@
 import React from "react";
 import "./style.css";
-import { IData } from "@/app/page";
+export interface IData {
+  key: string;
+  label: string;
+  element?: JSX.Element;
+}
 import Link from "next/link";
 
 interface Prop {

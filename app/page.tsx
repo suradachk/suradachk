@@ -1,168 +1,158 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Fade } from "react-awesome-reveal";
-import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
-
-import dayjs from "dayjs";
-
-import Switch from "./components/switch";
-import Menu from "./components/menu";
-import BackGround from "./components/background";
-import Profile from "./components/profile";
-import { TypeAnimation } from "react-type-animation";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import dynamic from "next/dynamic";
 import { IUserData } from "./types/user-type";
+import Navbar from "./components/modern/Navbar";
+import Hero from "./components/modern/Hero";
+import AboutSection from "./components/modern/AboutSection";
+import ExperienceSection from "./components/modern/ExperienceSection";
+import SkillsSection from "./components/modern/SkillsSection";
+import ContactSection from "./components/modern/ContactSection";
+import Footer from "./components/modern/Footer";
+import VersionSwitcher from "./components/VersionSwitcher";
 
 export interface IData {
   key: string;
   label: string;
-  element: JSX.Element;
+  element?: JSX.Element;
 }
 
-const About = dynamic(() => import("./components/about"));
-const Experience = dynamic(() => import("./components/experience"));
-const Skills = dynamic(() => import("./components/skills"));
-const Contact = dynamic(() => import("./components/contact"));
+// Dynamic client-only Three.js background
+const BackgroundParticles = dynamic(
+  () => import("./components/three/BackgroundParticles"),
+  { ssr: false }
+);
+
+// Fallback initial data to eliminate loading flashes
+const INITIAL_USER_DATA: IUserData = {
+  about: {
+    personal: {
+      name: "Suradach Kanphaisit",
+      nickName: "Dach",
+      birthday: "1998-04-03",
+      email: "suradach.kan@gmail.com",
+      hobby: {
+        sport: "Football",
+        music: "ACϟDC / Guns N' Roses / Justin Bieber / BTS / BlackPink / NEWJEANS",
+        movie: "Anime / Marvel Universe / K-Dramas",
+        games: "Dota2 / Valorant",
+      },
+      militaryStatus: "Conscripted",
+    },
+    education: {
+      university: {
+        name: "Pibulsongkram Rajabhat University",
+        details:
+          "Bachelor's degree computer engineering | July 2015 - December 2019 Grade point average: 3.14",
+      },
+      school: {
+        name: "Nabot Pittayakhom School",
+        details:
+          "High School Science, Math | May 2009 - May 2015 Grade point average: 3.64",
+      },
+    },
+  },
+  skills: {
+    languages: [
+      "JavaScript && TypeScript",
+      "Java",
+      "PHP",
+      "HTML && CSS",
+      "SQL",
+    ],
+    frameworks: [
+      "NodeJs (NestJs)",
+      "ReactJS (NextJs)",
+      "Antd",
+      "Tailwind CSS",
+    ],
+    orm: ["Sequelize", "Typeorm", "Prisma", "Mongoose"],
+    tools: [
+      "Visual Studio Code",
+      "Git && Github",
+      "DBeaver && Studio3T",
+      "Slack && Trello",
+      "Figma",
+      "postman",
+    ],
+    database: ["Mysql", "Postgresql", "Mongodb", "Redis"],
+    other: [
+      "K8S && Docker",
+      "Nginx && Apache",
+      "Basic Command lines",
+      "AWS (ec2)",
+      "Line && Facebook Messenger API",
+    ],
+  },
+  experience: [
+    {
+      company: "O S D Co., Ltd.",
+      position: "Full Time: Senior Software Developer",
+      responsibilities: [
+        "Staying up to date with the software development industry and studying the latest trends and programming techniques",
+        "Training junior software engineers to ensure they understand best practices and architecture",
+        "Compiling, analysing and summarising information regarding development and service issues",
+        "Taking ownership of developed applications and production systems",
+        "Engaging in product development and brainstorming with team members",
+      ],
+      detail: [
+        "Maintained Web App (CRM). Stack: NestJs, ReactJs(Antd), TypeScript, PostgreSQL, MongoDB, Prisma",
+        "Maintained Web App (DBMS). Stack: Node.js, React, PostgreSQL, MongoDB, TypeORM",
+        "Maintained Web App (Messenger & Line channels) Stack: Node.js, React, MongoDB",
+        "Built RESTful API. Stack: Node.js, Express, Sequelize, MySQL",
+      ],
+      date: "Apr 2020 - Present",
+    },
+  ],
+  contact: {
+    email: "suradach.kan@gmail.com",
+    website: "https://suradachk.com",
+    github: "https://github.com/suradachk",
+    linkin: "https://www.linkedin.com/in/suradachk",
+  },
+};
 
 export default function Home() {
-  const [mode, setMode] = useState<boolean>(true);
-  const [menu, setMenu] = useState<string>("about");
-  const [user, setUser] = useState<IUserData | undefined>();
+  const [user, setUser] = useState<IUserData>(INITIAL_USER_DATA);
 
   useEffect(() => {
-    const getUser = async () => {
-      const { data } = await axios.get("/api/user");
-      if (data) setUser(data);
+    const fetchUser = async () => {
+      try {
+        const { data } = await axios.get("/api/user");
+        if (data) {
+          setUser(data);
+        }
+      } catch (err) {
+        console.warn("Using fallback profile data", err);
+      }
     };
-    getUser();
-  }, []);
-
-  const pages: IData[] = [
-    {
-      key: "about",
-      label: "About",
-      element: <About user={user} />,
-    },
-    {
-      key: "experience",
-      label: "Experience",
-      element: <Experience user={user} />,
-    },
-    {
-      key: "skills",
-      label: "Skills",
-      element: <Skills user={user} />,
-    },
-    {
-      key: "contact",
-      label: "Contact",
-      element: <Contact user={user} />,
-    },
-  ];
-
-  const hadleSetMode = () => {
-    const domBody = document.body;
-    setMode(!mode);
-    !mode
-      ? (domBody.style.backgroundColor = "#16171b")
-      : (domBody.style.backgroundColor = "#d1eef7");
-
-    !mode
-      ? localStorage.removeItem("mode")
-      : localStorage.setItem("mode", "day");
-  };
-
-  useEffect(() => {
-    const fragmentSection = window.location.hash;
-    const secetion = fragmentSection.replace(/#/g, "");
-    if (secetion) {
-      setMenu(secetion);
-    }
-    const getMode = localStorage.getItem("mode");
-    if (getMode && getMode === "day") {
-      document.body.style.backgroundColor = "#d1eef7";
-      setMode(false);
-    }
+    fetchUser();
   }, []);
 
   return (
-    <>
-      <BackGround mode={mode} />
-      <div className="content" style={{ color: mode ? "white" : "black" }}>
-        <div className="relative flex justify-end h-10 w-full">
-          <Switch mode={mode} onClick={hadleSetMode} />
-        </div>
-        <div className="grid grid-cols-1 mt-10 lg:grid-cols-3">
-          <div className="flex justify-center lg:justify-end " id="repulse-div">
-            <Fade cascade damping={0.1}>
-              <Profile mode={mode} />
-            </Fade>
-          </div>
-          <div className="col-span-2">
-            <div className="card-text mx-4 mt-10  md:mx-20">
-              <Fade>
-                <TypeAnimation
-                  sequence={[
-                    `👨‍💻 Hi! I'm SURADACH , Full Stack Developer ${dayjs(
-                      new Date()
-                    ).diff(dayjs("2020-04-01"), "year")} years+ `,
-                    3000,
-                    `👨‍💻 Hi! I'm SURADACH , Full Stack Developer ${dayjs(
-                      new Date()
-                    ).diff(dayjs("2020-04-01"), "year")} years+ ...`,
-                    3000,
-                    `👨‍💻 Hi! I'm SURADACH , Full Stack Developer ${dayjs(
-                      new Date()
-                    ).diff(
-                      dayjs("2020-04-01"),
-                      "year"
-                    )} years+ , I like challenging activities and enjoy working `,
-                    3000,
-                    `👨‍💻 Hi! I'm SURADACH , Full Stack Developer ${dayjs(
-                      new Date()
-                    ).diff(
-                      dayjs("2020-04-01"),
-                      "year"
-                    )} years+ , I like challenging activities and enjoy working ☺️ `,
-                    3000,
-                  ]}
-                  wrapper="span"
-                  speed={20}
-                  style={{ fontSize: "1.5em", display: "inline-block" }}
-                  repeat={undefined}
-                />
-              </Fade>
-            </div>
-          </div>
-        </div>
-        <Menu data={pages} menu={menu} onClick={setMenu} />
+    <div className="relative min-h-screen bg-[#06090e] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
+      {/* 3D Ambient Background Particles */}
+      <BackgroundParticles />
 
-        <div className="grid grid-cols-1 w-full ">
-          {pages &&
-            pages
-              .filter((x: IData) => x.key === menu)
-              .map((item: IData) => (
-                <div key={item.key} className="card-text m-4 md:mx-20">
-                  <motion.div
-                    initial={{ y: -100 }}
-                    animate={{ y: 0 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 260,
-                      damping: 20,
-                    }}>
-                    {item.element}
-                  </motion.div>
-                </div>
-              ))}
-        </div>
+      {/* Modern Sticky Navigation */}
+      <Navbar />
 
-        <div className="flex justify-center mb-4">
-          <p className="font-bold">Copyright 🚀 SURADACHK</p>
-        </div>
-      </div>
-    </>
+      {/* Main Content Sections */}
+      <main className="relative z-10">
+        <Hero user={user} />
+        <AboutSection user={user} />
+        <ExperienceSection user={user} />
+        <SkillsSection user={user} />
+        <ContactSection user={user} />
+      </main>
+
+      {/* Modern Footer with Bangkok Time */}
+      <Footer />
+
+      {/* Universal Version Switcher HUD */}
+      <VersionSwitcher />
+    </div>
   );
 }

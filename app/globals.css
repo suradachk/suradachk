@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* styles.css or App.css */
-@import "~@fortawesome/fontawesome-free/css/all.css"; /* Import Font Awesome styles */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+:root {
+  --font-mono: "Space Mono", monospace;
+}
 
 * {
   margin: 0;
@@ -12,155 +15,135 @@
   scroll-behavior: smooth;
 }
 
+html {
+  color-scheme: dark;
+}
+
 body {
-  background: url("https://uploads-ssl.webflow.com/62e3ee10882dc50bcae8d07a/631a5d4631d4c55a475f3e34_noise-50.png");
-  background-color: #16171b;
-  animation: moveBackground 10s linear infinite;
-  position: relative;
+  background-color: #06090e;
+  color: #e2e8f0;
   overflow-x: hidden;
-  -webkit-overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 65%, rgba(121, 40, 202, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(0, 255, 204, 0.03) 0%, transparent 40%);
+  background-attachment: fixed;
 }
 
-.content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+::-webkit-scrollbar-track {
+  background: #06090e;
 }
 
-.nighttime {
-  background-color: #000000cc;
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f0ff 0%, #7928ca 100%);
+  border-radius: 4px;
 }
 
-.daytime {
-  background-color: #ffffffcc;
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #33f3ff 0%, #9042e6 100%);
 }
 
-.card-profile {
-  height: 300px;
-  width: 300px;
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(13, 19, 33, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(18, 26, 45, 0.85);
+  border-color: rgba(0, 240, 255, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(0, 240, 255, 0.12);
+  transform: translateY(-3px);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Text glow utilities */
+.text-glow-cyan {
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 12px rgba(121, 40, 202, 0.6);
+}
+
+/* Glowing borders */
+.glow-border-cyan {
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+}
+
+.glow-border-purple {
+  border: 1px solid rgba(121, 40, 202, 0.3);
+  box-shadow: 0 0 15px rgba(121, 40, 202, 0.15);
+}
+
+/* Cyber scanline effect for portrait */
+.cyber-card {
   position: relative;
-  border-radius: 50%;
-  overflow: hidden;
-  animation: floatImage 4s ease-in-out infinite;
-}
-
-.card-profile::before {
-  content: "";
-  position: absolute;
-  inset: -20px 0px;
-  transition: 2s;
-  animation: animate 10s linear infinite;
-}
-
-.card-profile-content {
-  position: absolute;
-  inset: 10px;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  z-index: 3;
   overflow: hidden;
 }
 
-.card-profile-content img {
+.cyber-card::after {
+  content: " ";
   position: absolute;
-  object-fit: cover;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 0.5s;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 240, 255, 0.04) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+  background-size: 100% 3px, 6px 100%;
   pointer-events: none;
 }
 
-@keyframes animate {
-  0% {
-    transform: rotate(0deg);
+/* Float animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
   }
-
   50% {
-    transform: rotate(180deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
+    transform: translateY(-8px) rotate(1deg);
   }
 }
 
-.card-profile::after {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  background: transparent;
-  border-radius: 50%;
-  z-index: 1;
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
 }
 
-@keyframes floatImage {
-  0% {
-    transform: translateY(0);
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
   }
-
   50% {
-    transform: translateY(-1rem);
-  }
-
-  100% {
-    transform: translateY(0);
+    opacity: 0.8;
+    transform: scale(1.05);
   }
 }
 
-.card-text {
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.25);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  padding: 1.5em;
-  filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
-  display: flex;
-  flex-direction: column;
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
 }
 
-.bounce {
-  transition: all 0.3s ease-out;
-  cursor: pointer;
-}
-
-.bounce:hover {
-  display: inline-block;
-  animation: rubberband 0.8s ease-out;
-}
-
-@keyframes rubberband {
-  0% {
-    transform: scaleX(1);
-  }
-  40% {
-    transform: scaleX(1.12) scaleY(0.75);
-  }
-  55% {
-    transform: scaleX(0.85) scaleY(1);
-  }
-  65% {
-    transform: scaleX(1.09) scaleY(0.85);
-  }
-  75% {
-    transform: scaleX(0.9) scaleY(1);
-  }
-  90% {
-    transform: scaleX(1.05) scaleY(0.95);
-  }
-  100% {
-    transform: scaleX(1) scaleY(1);
-  }
+/* Marquee gradient masks */
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
