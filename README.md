@@ -2,7 +2,7 @@
 
 
 ## 👋 Hello! 
-Software Engineer with 4+ years of experience.
+Full-Stack with 5+ years of experience.
 
 
 ## 🛠️ Technologies & Tools
@@ -12,6 +12,7 @@ Software Engineer with 4+ years of experience.
 ![](https://img.shields.io/badge/Code-Node-informational?style=flat&color=informational&logo=node.js)
 ![](https://img.shields.io/badge/Code-Html-informational?style=flat&color=informational&logo=html5)
 ![](https://img.shields.io/badge/Code-CSS-informational?style=flat&color=informational&logo=css3)
+![](https://img.shields.io/badge/Framework-Next.js-informational?style=flat&color=black&logo=next.js)
 ![](https://img.shields.io/badge/Lib-Nestjs-informational?style=flat&color=red&logo=nestjs)
 ![](https://img.shields.io/badge/ORM-Prisma-informational?style=flat&color=yellow&logo=prisma)
 ![](https://img.shields.io/badge/DB-Mongodb-informational?style=flat&color=green&logo=mongodb)
