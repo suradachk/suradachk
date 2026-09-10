@@ -13,9 +13,19 @@ import {
   faChevronUp,
   faChevronDown,
   faXmark,
+  faRocket,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const PORTFOLIO_VERSIONS = [
+  {
+    id: "v5-galaxy",
+    path: "/galaxy",
+    name: "Cosmic Galaxy",
+    tag: "3D Universe & Warp Drive",
+    icon: faRocket,
+    color: "from-purple-500 via-indigo-500 to-cyan-400",
+    badgeColor: "bg-purple-500/20 text-cyan-300 border-purple-500/30",
+  },
   {
     id: "v2-3d",
     path: "/",

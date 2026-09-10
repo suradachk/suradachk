@@ -93,8 +93,16 @@ export default function Navbar() {
             );
           })}
           <Link
+            href="/galaxy"
+            className="ml-1 px-3 py-1 rounded-full text-xs font-mono text-purple-300 hover:text-white hover:bg-purple-500/20 border border-purple-500/30 transition-all flex items-center gap-1.5"
+            title="Open 3D Galaxy Portfolio"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+            <span>GALAXY</span>
+          </Link>
+          <Link
             href="/terminal"
-            className="ml-1 px-3 py-1 rounded-full text-xs font-mono text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/15 border border-emerald-500/30 transition-all flex items-center gap-1.5"
+            className="px-3 py-1 rounded-full text-xs font-mono text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/15 border border-emerald-500/30 transition-all flex items-center gap-1.5"
             title="Open Interactive Terminal Portfolio"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
