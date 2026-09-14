@@ -15,8 +15,18 @@ import {
   faXmark,
   faRocket,
 } from "@fortawesome/free-solid-svg-icons";
+import { faApple } from "@fortawesome/free-brands-svg-icons";
 
 export const PORTFOLIO_VERSIONS = [
+  {
+    id: "v6-apple",
+    path: "/apple",
+    name: "Apple Keynote",
+    tag: "Titanium Pro Aesthetic",
+    icon: faApple,
+    color: "from-slate-200 via-slate-400 to-blue-500",
+    badgeColor: "bg-slate-200/20 text-white border-slate-200/30",
+  },
   {
     id: "v5-galaxy",
     path: "/galaxy",

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark, faDownload, faTerminal } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin, faApple } from "@fortawesome/free-brands-svg-icons";
 
 const NAV_LINKS = [
   { name: "About", href: "#about" },
@@ -93,8 +93,16 @@ export default function Navbar() {
             );
           })}
           <Link
+            href="/apple"
+            className="ml-1 px-3 py-1 rounded-full text-xs font-mono text-slate-200 hover:text-white hover:bg-white/10 border border-white/20 transition-all flex items-center gap-1.5"
+            title="Open Apple.com Keynote Edition"
+          >
+            <FontAwesomeIcon icon={faApple} className="text-xs" />
+            <span>APPLE</span>
+          </Link>
+          <Link
             href="/galaxy"
-            className="ml-1 px-3 py-1 rounded-full text-xs font-mono text-purple-300 hover:text-white hover:bg-purple-500/20 border border-purple-500/30 transition-all flex items-center gap-1.5"
+            className="px-3 py-1 rounded-full text-xs font-mono text-purple-300 hover:text-white hover:bg-purple-500/20 border border-purple-500/30 transition-all flex items-center gap-1.5"
             title="Open 3D Galaxy Portfolio"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
