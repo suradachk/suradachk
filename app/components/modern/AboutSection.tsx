@@ -25,6 +25,7 @@ interface AboutProps {
 export default function AboutSection({ user }: AboutProps) {
   const birthDate = user?.about.personal.birthday || "1998-04-03";
   const age = dayjs().diff(dayjs(birthDate), "year");
+  const yearsExperience = dayjs().diff(dayjs("2020-04-01"), "year");
 
   return (
     <section id="about" className="py-24 relative overflow-hidden">
@@ -126,7 +127,7 @@ export default function AboutSection({ user }: AboutProps) {
                     Career Start
                   </span>
                   <span className="text-slate-200 font-semibold text-xs">
-                    April 2020 (4+ Years)
+                    April 2020 ({yearsExperience}+ Years)
                   </span>
                 </div>
               </div>
