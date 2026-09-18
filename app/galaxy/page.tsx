@@ -40,11 +40,13 @@ import {
   faGamepad,
   faMusic,
   faFilm,
+  faBolt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 import GalaxyScene from "../components/three/GalaxyScene";
 import VersionSwitcher from "../components/VersionSwitcher";
+import RecruiterModal from "../components/modern/RecruiterModal";
 import { IUserData } from "../types/user-type";
 import dayjs from "dayjs";
 
@@ -53,6 +55,7 @@ export default function GalaxyPage() {
   const [logos, setLogos] = useState<string[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [stardate, setStardate] = useState<string>("");
+  const [recruiterModalOpen, setRecruiterModalOpen] = useState<boolean>(false);
   const [isWarp, setIsWarp] = useState<boolean>(false);
   const [soundEnabled, setSoundEnabled] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
@@ -246,6 +249,16 @@ export default function GalaxyPage() {
 
           {/* Quick Actions */}
           <div className="flex items-center gap-2.5">
+            {/* Recruiter 30s HUD Button */}
+            <button
+              onClick={() => setRecruiterModalOpen(true)}
+              className="px-3 py-1.5 rounded-lg border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 text-xs font-mono font-bold transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(245,158,11,0.25)] hover:scale-105"
+              title="Open 30-Second Recruiter Summary"
+            >
+              <FontAwesomeIcon icon={faBolt} className="text-amber-400 text-xs animate-pulse" />
+              <span>RECRUITER 30s</span>
+            </button>
+
             {/* Audio Synth Button */}
             <button
               onClick={toggleSound}
@@ -745,6 +758,12 @@ export default function GalaxyPage() {
 
       {/* Universal Floating Version Switcher */}
       <VersionSwitcher />
+
+      {/* Recruiter 30s Modal */}
+      <RecruiterModal
+        isOpen={recruiterModalOpen}
+        onClose={() => setRecruiterModalOpen(false)}
+      />
     </div>
   );
 }

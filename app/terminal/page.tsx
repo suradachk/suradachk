@@ -102,10 +102,13 @@ export default function TerminalPage() {
             <p className="text-slate-300 font-bold">Available Commands:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-2">
               <div>
+                <span className="text-amber-300 font-bold">recruiter</span> - 30s executive dossier &amp; STAR impact
+              </div>
+              <div>
                 <span className="text-cyan-300 font-bold">about</span> - Personal dossier &amp; education
               </div>
               <div>
-                <span className="text-cyan-300 font-bold">exp</span> - Work experience &amp; systems
+                <span className="text-cyan-300 font-bold">exp</span> - Work experience &amp; STAR metrics
               </div>
               <div>
                 <span className="text-cyan-300 font-bold">skills</span> - Tech stack matrix
@@ -125,6 +128,36 @@ export default function TerminalPage() {
               <div>
                 <span className="text-cyan-300 font-bold">clear</span> - Clear terminal buffer
               </div>
+            </div>
+          </div>
+        );
+        break;
+
+      case "recruiter":
+      case "star":
+      case "metrics":
+      case "dossier":
+        response = (
+          <div className="space-y-3 text-xs sm:text-sm font-mono text-slate-300">
+            <p className="text-amber-300 font-bold">== EXECUTIVE 30-SECOND RECRUITER DOSSIER ==</p>
+            <div className="p-3 rounded bg-amber-950/20 border border-amber-500/30 text-amber-200">
+              <span className="font-bold">Candidate:</span> Suradach Kanphaisit (Dach) &bull; Senior Software Developer (4+ Years Exp)
+              <br />
+              <span className="font-bold">Core Stack:</span> NestJS, TypeScript, React, Next.js, Dual-DB (PostgreSQL + MongoDB), Microservices
+            </div>
+            <div className="space-y-1.5">
+              <p className="font-bold text-white">Engineering Impact &amp; STAR Metrics:</p>
+              <p>• <span className="text-emerald-400 font-bold">[CRM Platform]</span> Slashing runtime schema bugs by ~40% and maintaining 99.9% uptime via NestJS + Prisma ORM migration.</p>
+              <p>• <span className="text-emerald-400 font-bold">[DBMS Web App]</span> Reduced analytical query execution time from multi-seconds to &lt;350ms across millions of records via TypeORM index tuning.</p>
+              <p>• <span className="text-emerald-400 font-bold">[Omni-Channel API]</span> Zero message drops across high-throughput LINE &amp; Messenger webhooks with automatic failover.</p>
+              <p>• <span className="text-emerald-400 font-bold">[REST Microservices]</span> Standardized REST schemas reducing cross-team integration overhead by ~60% with ~99.9% uptime.</p>
+              <p>• <span className="text-cyan-400 font-bold">[Leadership]</span> Mentored 3 junior developers in TypeScript best practices, clean architecture, and CI/CD pipelines.</p>
+            </div>
+            <div className="pt-1 flex items-center gap-3">
+              <a href="/api/resume" target="_blank" download="suradachk-resume.pdf" className="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-400/50 hover:bg-amber-500/30 transition-all font-bold">
+                📄 Download Complete CV (PDF)
+              </a>
+              <span className="text-slate-400">suradach.kan@gmail.com</span>
             </div>
           </div>
         );
@@ -160,12 +193,13 @@ export default function TerminalPage() {
               <p className="font-bold text-white">Company: O S D Co., Ltd. (Apr 2020 – Present)</p>
               <p className="text-cyan-400">Position: Full Time: Senior Software Developer (4+ Years)</p>
             </div>
-            <div className="space-y-1">
-              <p className="font-semibold text-slate-200">Core Systems Delivered:</p>
-              <p>1. <span className="text-white font-bold">CRM Platform:</span> NestJS, ReactJS, Antd, TypeScript, PostgreSQL, MongoDB, Prisma</p>
-              <p>2. <span className="text-white font-bold">DBMS Web App:</span> Node.js, React, PostgreSQL, MongoDB, TypeORM</p>
-              <p>3. <span className="text-white font-bold">LINE &amp; Messenger Gateway:</span> Real-time chat webhooks, Node.js, React, MongoDB</p>
-              <p>4. <span className="text-white font-bold">RESTful API Infrastructure:</span> Node.js, Express, Sequelize, MySQL</p>
+            <div className="space-y-2">
+              <p className="font-semibold text-slate-200">Core Systems &amp; Measured Impact:</p>
+              <p>1. <span className="text-white font-bold">CRM Platform:</span> NestJS, ReactJS, TypeScript, PostgreSQL, MongoDB, Prisma <span className="text-emerald-400 font-semibold">[~40% bug reduction, 99.9% uptime]</span></p>
+              <p>2. <span className="text-white font-bold">DBMS Web App:</span> Node.js, React, PostgreSQL, MongoDB, TypeORM <span className="text-emerald-400 font-semibold">[&lt;350ms query latency across millions of rows]</span></p>
+              <p>3. <span className="text-white font-bold">LINE &amp; Messenger Gateway:</span> Real-time chat webhooks, Node.js, React, MongoDB <span className="text-emerald-400 font-semibold">[0 message loss on peak campaigns]</span></p>
+              <p>4. <span className="text-white font-bold">RESTful API Infrastructure:</span> Node.js, Express, Sequelize, MySQL <span className="text-emerald-400 font-semibold">[~60% faster integration, 99.9% uptime]</span></p>
+              <p>5. <span className="text-white font-bold">Engineering Mentorship:</span> Led technical code reviews &amp; onboarded 3 junior engineers.</p>
             </div>
           </div>
         );
@@ -287,7 +321,7 @@ export default function TerminalPage() {
     }
   };
 
-  const quickChips = ["help", "about", "skills", "exp", "contact", "resume", "gui"];
+  const quickChips = ["recruiter", "exp", "skills", "about", "contact", "resume", "gui", "help"];
 
   return (
     <div className="min-h-screen bg-[#06080d] text-slate-200 p-4 sm:p-8 flex flex-col justify-between font-mono relative overflow-hidden">

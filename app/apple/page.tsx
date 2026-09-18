@@ -30,12 +30,14 @@ import { faApple, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icon
 
 import AppleScene from "../components/three/AppleScene";
 import VersionSwitcher from "../components/VersionSwitcher";
+import RecruiterModal from "../components/modern/RecruiterModal";
 import { IUserData } from "../types/user-type";
 import dayjs from "dayjs";
 
 export default function ApplePage() {
   const [user, setUser] = useState<IUserData | null>(null);
   const [copied, setCopied] = useState<boolean>(false);
+  const [recruiterModalOpen, setRecruiterModalOpen] = useState<boolean>(false);
   const [formData, setFormData] = useState({ email: "", subject: "", message: "" });
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -120,7 +122,16 @@ export default function ApplePage() {
             </button>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
+            <button
+              onClick={() => setRecruiterModalOpen(true)}
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#2c2c2e] hover:bg-[#3a3a3c] text-[#2997ff] border border-[#0071e3]/40 shadow-sm transition-all flex items-center gap-1.5"
+              title="Open 30-Second Recruiter Summary"
+            >
+              <FontAwesomeIcon icon={faBolt} className="text-[#2997ff] text-[10px]" />
+              <span>Recruiter 30s</span>
+            </button>
+
             <a
               href="/api/resume"
               target="_blank"
@@ -161,6 +172,13 @@ export default function ApplePage() {
         {/* CTA Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
           <button
+            onClick={() => setRecruiterModalOpen(true)}
+            className="px-6 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black shadow-lg shadow-orange-500/20 transition-all flex items-center gap-2"
+          >
+            <FontAwesomeIcon icon={faBolt} className="text-xs" />
+            <span>Recruiter Quick-View (30s)</span>
+          </button>
+          <button
             onClick={() => scrollToSection("architecture")}
             className="px-6 py-2.5 rounded-full text-sm font-medium bg-[#0071e3] hover:bg-[#0077ed] text-white transition-all shadow-md"
           >
@@ -198,22 +216,36 @@ export default function ApplePage() {
           </p>
         </div>
 
-        {/* 4 Feature System Cards */}
+        {/* 4 Feature System Cards with STAR Impact Badges */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* System 1: CRM */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#161617] border border-[#2d2d2f] hover:border-[#424245] transition-all flex flex-col justify-between group">
+          <div className="p-8 sm:p-10 rounded-3xl bg-[#161617] border border-[#2d2d2f] hover:border-[#2997ff]/40 transition-all flex flex-col justify-between group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#2997ff]/5 rounded-bl-full pointer-events-none" />
             <div className="space-y-4">
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#2997ff]">
-                Flagship Platform
-              </span>
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#2997ff]">
+                  Flagship Platform
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#2997ff]/10 text-[#2997ff] border border-[#2997ff]/30">
+                  ~40% Error Reduction
+                </span>
+              </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                 Enterprise CRM Web Application
               </h3>
               <p className="text-[#86868b] text-sm sm:text-base leading-relaxed">
                 A display of raw processing power. Constructed with a dual-database engine, separating transactional operations in PostgreSQL and dynamic pipeline records in MongoDB.
               </p>
+              <div className="p-3.5 rounded-xl bg-[#1d1d1f] border border-[#2d2d2f] text-xs text-[#d2d2d7] space-y-1">
+                <div className="font-semibold text-white flex items-center gap-1.5">
+                  <span className="text-[#2997ff]">★</span> STAR Business Impact
+                </div>
+                <p className="text-[#86868b] leading-relaxed">
+                  Migrated core endpoints from raw SQL to NestJS + Prisma ORM, slashing runtime schema bugs by ~40% and maintaining 99.9% uptime.
+                </p>
+              </div>
             </div>
-            <div className="pt-8 mt-6 border-t border-[#2d2d2f] flex flex-wrap gap-2">
+            <div className="pt-6 mt-6 border-t border-[#2d2d2f] flex flex-wrap gap-2">
               {["NestJS", "ReactJS", "Ant Design", "TypeScript", "PostgreSQL", "MongoDB", "Prisma"].map((t) => (
                 <span key={t} className="px-3 py-1 rounded-full text-xs font-mono bg-[#242426] text-[#d2d2d7]">
                   {t}
@@ -223,19 +255,33 @@ export default function ApplePage() {
           </div>
 
           {/* System 2: DBMS */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#161617] border border-[#2d2d2f] hover:border-[#424245] transition-all flex flex-col justify-between group">
+          <div className="p-8 sm:p-10 rounded-3xl bg-[#161617] border border-[#2d2d2f] hover:border-[#a855f7]/40 transition-all flex flex-col justify-between group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#a855f7]/5 rounded-bl-full pointer-events-none" />
             <div className="space-y-4">
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#a855f7]">
-                Data Engine
-              </span>
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#a855f7]">
+                  Data Engine
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#a855f7]/10 text-[#a855f7] border border-[#a855f7]/30">
+                  Sub-Second Query Latency
+                </span>
+              </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                 Enterprise DBMS Web Application
               </h3>
               <p className="text-[#86868b] text-sm sm:text-base leading-relaxed">
                 Pro performance down to the millisecond. Designed for heavy analytical querying, schema migrations via TypeORM, and continuous data synchronization.
               </p>
+              <div className="p-3.5 rounded-xl bg-[#1d1d1f] border border-[#2d2d2f] text-xs text-[#d2d2d7] space-y-1">
+                <div className="font-semibold text-white flex items-center gap-1.5">
+                  <span className="text-[#a855f7]">★</span> STAR Business Impact
+                </div>
+                <p className="text-[#86868b] leading-relaxed">
+                  Engineered indexing strategies &amp; complex analytical joins across millions of records, reducing report execution time from multiple seconds to &lt;350ms.
+                </p>
+              </div>
             </div>
-            <div className="pt-8 mt-6 border-t border-[#2d2d2f] flex flex-wrap gap-2">
+            <div className="pt-6 mt-6 border-t border-[#2d2d2f] flex flex-wrap gap-2">
               {["Node.js", "React", "PostgreSQL", "MongoDB", "TypeORM"].map((t) => (
                 <span key={t} className="px-3 py-1 rounded-full text-xs font-mono bg-[#242426] text-[#d2d2d7]">
                   {t}
@@ -245,19 +291,33 @@ export default function ApplePage() {
           </div>
 
           {/* System 3: Omni-Channel */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#161617] border border-[#2d2d2f] hover:border-[#424245] transition-all flex flex-col justify-between group">
+          <div className="p-8 sm:p-10 rounded-3xl bg-[#161617] border border-[#2d2d2f] hover:border-[#34d399]/40 transition-all flex flex-col justify-between group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#34d399]/5 rounded-bl-full pointer-events-none" />
             <div className="space-y-4">
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#34d399]">
-                Connectivity
-              </span>
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#34d399]">
+                  Connectivity
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#34d399]/10 text-[#34d399] border border-[#34d399]/30">
+                  Zero Message Drops
+                </span>
+              </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                 LINE &amp; Messenger Omni-Channel
               </h3>
               <p className="text-[#86868b] text-sm sm:text-base leading-relaxed">
                 Instant connection across the ecosystem. Real-time webhook architecture ingesting thousands of customer conversations with automated routing and agent dashboards.
               </p>
+              <div className="p-3.5 rounded-xl bg-[#1d1d1f] border border-[#2d2d2f] text-xs text-[#d2d2d7] space-y-1">
+                <div className="font-semibold text-white flex items-center gap-1.5">
+                  <span className="text-[#34d399]">★</span> STAR Business Impact
+                </div>
+                <p className="text-[#86868b] leading-relaxed">
+                  Constructed fault-tolerant webhook ingestion with retry safeguards, sustaining peak campaign traffic with zero message loss and real-time operator sync.
+                </p>
+              </div>
             </div>
-            <div className="pt-8 mt-6 border-t border-[#2d2d2f] flex flex-wrap gap-2">
+            <div className="pt-6 mt-6 border-t border-[#2d2d2f] flex flex-wrap gap-2">
               {["Node.js", "React", "MongoDB", "LINE Messaging API", "Facebook Graph API"].map((t) => (
                 <span key={t} className="px-3 py-1 rounded-full text-xs font-mono bg-[#242426] text-[#d2d2d7]">
                   {t}
@@ -267,19 +327,33 @@ export default function ApplePage() {
           </div>
 
           {/* System 4: RESTful API Relay */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#161617] border border-[#2d2d2f] hover:border-[#424245] transition-all flex flex-col justify-between group">
+          <div className="p-8 sm:p-10 rounded-3xl bg-[#161617] border border-[#2d2d2f] hover:border-[#f59e0b]/40 transition-all flex flex-col justify-between group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#f59e0b]/5 rounded-bl-full pointer-events-none" />
             <div className="space-y-4">
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#f59e0b]">
-                Microservices
-              </span>
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#f59e0b]">
+                  Microservices
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/30">
+                  ~99.9% Production Uptime
+                </span>
+              </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                 High-Speed RESTful API Infrastructure
               </h3>
               <p className="text-[#86868b] text-sm sm:text-base leading-relaxed">
                 Engineered for pure efficiency. Built with clean separation of concerns, normalized MySQL schemas via Sequelize, parameterized caching, and JWT security.
               </p>
+              <div className="p-3.5 rounded-xl bg-[#1d1d1f] border border-[#2d2d2f] text-xs text-[#d2d2d7] space-y-1">
+                <div className="font-semibold text-white flex items-center gap-1.5">
+                  <span className="text-[#f59e0b]">★</span> STAR Business Impact
+                </div>
+                <p className="text-[#86868b] leading-relaxed">
+                  Standardized REST contracts with automated schema validation and unified error middleware, reducing client-side integration churn by ~60%.
+                </p>
+              </div>
             </div>
-            <div className="pt-8 mt-6 border-t border-[#2d2d2f] flex flex-wrap gap-2">
+            <div className="pt-6 mt-6 border-t border-[#2d2d2f] flex flex-wrap gap-2">
               {["Node.js", "Express", "Sequelize", "MySQL", "REST API"].map((t) => (
                 <span key={t} className="px-3 py-1 rounded-full text-xs font-mono bg-[#242426] text-[#d2d2d7]">
                   {t}
@@ -579,6 +653,12 @@ export default function ApplePage() {
 
       {/* Universal Version Switcher HUD */}
       <VersionSwitcher />
+
+      {/* 30-Second Recruiter Quick-View Modal */}
+      <RecruiterModal
+        isOpen={recruiterModalOpen}
+        onClose={() => setRecruiterModalOpen(false)}
+      />
     </div>
   );
 }

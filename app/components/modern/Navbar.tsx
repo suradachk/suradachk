@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark, faDownload, faTerminal } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark, faDownload, faTerminal, faBolt } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin, faApple } from "@fortawesome/free-brands-svg-icons";
+import RecruiterModal from "./RecruiterModal";
 
 const NAV_LINKS = [
   { name: "About", href: "#about" },
@@ -16,6 +17,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [recruiterModalOpen, setRecruiterModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
@@ -138,6 +140,14 @@ export default function Navbar() {
           >
             <FontAwesomeIcon icon={faLinkedin} className="text-lg" />
           </a>
+          <button
+            onClick={() => setRecruiterModalOpen(true)}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-mono text-xs font-bold border border-cyan-400/40 shadow-[0_0_15px_rgba(0,240,255,0.2)] hover:scale-105 transition-all"
+            title="Open 30-Second Recruiter Dossier"
+          >
+            <FontAwesomeIcon icon={faBolt} className="text-cyan-400 text-xs" />
+            <span>RECRUITER 30s</span>
+          </button>
           <a
             href="/api/resume"
             target="_blank"
@@ -204,9 +214,25 @@ export default function Navbar() {
                 <span>LinkedIn</span>
               </a>
             </div>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setRecruiterModalOpen(true);
+              }}
+              className="w-full mt-2 py-2.5 rounded-lg bg-cyan-500/20 text-cyan-300 font-mono text-xs font-bold border border-cyan-400/40 flex items-center justify-center gap-2"
+            >
+              <FontAwesomeIcon icon={faBolt} className="text-cyan-400 text-xs" />
+              <span>RECRUITER 30-SECOND DOSSIER</span>
+            </button>
           </div>
         </div>
       )}
+
+      {/* Recruiter Quick-View Modal */}
+      <RecruiterModal
+        isOpen={recruiterModalOpen}
+        onClose={() => setRecruiterModalOpen(false)}
+      />
     </header>
   );
 }

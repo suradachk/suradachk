@@ -19,15 +19,18 @@ import {
   faMusic,
   faCopy,
   faCheck,
+  faBolt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { IUserData } from "../types/user-type";
 import VersionSwitcher from "../components/VersionSwitcher";
+import RecruiterModal from "../components/modern/RecruiterModal";
 import dayjs from "dayjs";
 
 export default function MinimalPage() {
   const [user, setUser] = useState<IUserData | null>(null);
   const [copied, setCopied] = useState(false);
+  const [recruiterModalOpen, setRecruiterModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -54,22 +57,30 @@ export default function MinimalPage() {
     {
       name: "Enterprise CRM Platform",
       stack: "NestJS • ReactJS • TypeScript • PostgreSQL • MongoDB • Prisma",
+      metric: "~40% Error Reduction",
       desc: "Full-lifecycle CRM handling client pipelines, transactional data, and real-time dashboard analytics.",
+      impact: "Migrated to NestJS + Prisma ORM, cutting runtime data errors by ~40% and maintaining 99.9% uptime.",
     },
     {
       name: "Enterprise DBMS Web App",
       stack: "Node.js • React • PostgreSQL • MongoDB • TypeORM",
+      metric: "<350ms Query Latency",
       desc: "High-concurrency database query dashboard and schema migration service.",
+      impact: "Optimized complex analytical queries across multi-million record tables down to sub-second execution.",
     },
     {
       name: "LINE & Messenger Omni-Channel Gateway",
       stack: "Node.js • React • MongoDB • Webhooks & Graph APIs",
+      metric: "Zero Message Drops",
       desc: "Real-time chat ingestion and automated customer service webhook pipelines.",
+      impact: "Fault-tolerant webhook architecture processing peak campaign traffic with zero dropped messages.",
     },
     {
       name: "Scalable RESTful API Infrastructure",
       stack: "Node.js • Express • Sequelize • MySQL",
+      metric: "~99.9% Uptime",
       desc: "Performant microservices with normalized relational schemas and parameterized caching.",
+      impact: "Standardized microservice contracts reducing client-side integration churn by ~60%.",
     },
   ];
 
@@ -109,6 +120,14 @@ export default function MinimalPage() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
+            <button
+              onClick={() => setRecruiterModalOpen(true)}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-400 text-slate-950 font-mono text-xs font-bold hover:bg-amber-300 shadow-md shadow-amber-400/20 transition-all"
+            >
+              <FontAwesomeIcon icon={faBolt} className="text-slate-950" />
+              <span>Recruiter 30s Dossier</span>
+            </button>
+
             <a
               href="/api/resume"
               target="_blank"
@@ -150,55 +169,60 @@ export default function MinimalPage() {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* Card 1: Key Metrics */}
-          <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 flex flex-col justify-between">
-            <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">
-              Experience
-            </span>
-            <div className="my-4">
-              <span className="text-5xl font-extrabold text-white font-mono">
-                {yearsExp}+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1: Core Value Prop */}
+          <div className="p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 md:col-span-2 space-y-4 flex flex-col justify-between">
+            <div className="space-y-3">
+              <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider">
+                Engineering Philosophy
               </span>
-              <span className="text-sm text-slate-400 block mt-1 font-mono">
-                Years of Continuous Production Delivery
-              </span>
+              <h2 className="text-2xl font-bold text-white tracking-tight">
+                High-Reliability Backend &amp; Enterprise Full-Stack
+              </h2>
+              <p className="text-sm text-slate-400 leading-relaxed font-light">
+                Specialized in architecting decoupled multi-tier systems. Strong mastery in
+                combining relational transaction safety (PostgreSQL/MySQL) with high-throughput
+                document databases (MongoDB) and asynchronous event-driven integrations.
+              </p>
             </div>
-            <span className="text-xs text-slate-500 font-mono">
-              Since April 2020 at O S D Co., Ltd.
-            </span>
-          </div>
-
-          {/* Card 2: Core Stack */}
-          <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 md:col-span-2 flex flex-col justify-between">
-            <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">
-              Core Technical Competencies
-            </span>
-            <div className="flex flex-wrap gap-2 my-4">
+            <div className="pt-4 flex flex-wrap gap-2">
               {[
-                "TypeScript",
-                "JavaScript",
                 "NestJS",
-                "Node.js",
-                "ReactJS",
-                "Next.js",
+                "TypeScript",
                 "PostgreSQL",
                 "MongoDB",
                 "Prisma",
-                "TypeORM",
                 "Docker",
-                "Kubernetes",
-                "AWS EC2",
-                "Redis",
-                "Tailwind CSS",
+                "Next.js",
               ].map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-mono text-slate-200"
+                  className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 border border-white/5 text-slate-300"
                 >
                   {tech}
                 </span>
               ))}
+            </div>
+          </div>
+
+          {/* Card 2: Quick Stats */}
+          <div className="p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 space-y-4 flex flex-col justify-between">
+            <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+              Telemetry
+            </span>
+            <div className="space-y-3">
+              <div>
+                <div className="text-4xl font-extrabold text-white">{yearsExp}+</div>
+                <div className="text-xs text-slate-400 font-mono">Years Professional Exp</div>
+              </div>
+              <div className="pt-2 border-t border-white/5">
+                <div className="text-2xl font-bold text-emerald-400">4+ Systems</div>
+                <div className="text-xs text-slate-400 font-mono">Production Enterprise Apps</div>
+              </div>
+              <div className="pt-2 border-t border-white/5">
+                <div className="text-2xl font-bold text-cyan-400">3.14 GPA</div>
+                <div className="text-xs text-slate-400 font-mono">B.Eng Computer Engineering</div>
+              </div>
             </div>
             <span className="text-xs text-slate-500 font-mono">
               Type-safe architectures, microservices, containerization
@@ -230,13 +254,23 @@ export default function MinimalPage() {
               {projects.map((proj) => (
                 <div
                   key={proj.name}
-                  className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2 hover:border-white/20 transition-all"
+                  className="p-5 rounded-xl bg-white/[0.02] border border-white/5 space-y-3 hover:border-emerald-500/30 transition-all flex flex-col justify-between"
                 >
-                  <h4 className="font-bold text-white text-sm">{proj.name}</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed font-light">
-                    {proj.desc}
-                  </p>
-                  <p className="text-[11px] font-mono text-slate-500 pt-1">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                      <h4 className="font-bold text-white text-sm">{proj.name}</h4>
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-400/10 text-emerald-400 border border-emerald-400/30">
+                        {proj.metric}
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-400 leading-relaxed font-light">
+                      {proj.desc}
+                    </p>
+                    <p className="text-xs text-slate-300 bg-white/[0.02] p-2.5 rounded-lg border border-white/5 font-mono">
+                      <span className="text-emerald-400 font-bold">★ STAR:</span> {proj.impact}
+                    </p>
+                  </div>
+                  <p className="text-[11px] font-mono text-slate-500 pt-1 border-t border-white/5">
                     {proj.stack}
                   </p>
                 </div>
@@ -346,6 +380,12 @@ export default function MinimalPage() {
 
       {/* Universal Version Switcher HUD */}
       <VersionSwitcher />
+
+      {/* Recruiter 30s Quick-View Modal */}
+      <RecruiterModal
+        isOpen={recruiterModalOpen}
+        onClose={() => setRecruiterModalOpen(false)}
+      />
     </div>
   );
 }
