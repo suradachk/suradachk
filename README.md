@@ -15,7 +15,7 @@
 
 ## About me
 
-Senior software developer with **<!-- EXPERIENCE:START -->6 years 5 months<!-- EXPERIENCE:END -->** of production experience since April 2020. I design, build, and maintain enterprise systems with an emphasis on dependable APIs, maintainable architecture, data integrity, and end-to-end ownership.
+Senior software developer with **<!-- EXPERIENCE:START -->6 years 6 months<!-- EXPERIENCE:END -->** of production experience since April 2020. I design, build, and maintain enterprise systems with an emphasis on dependable APIs, maintainable architecture, data integrity, and end-to-end ownership.
 
 My background spans enterprise CRM platforms, database-management applications, real-time LINE and Messenger integrations, and scalable REST APIs. I also help junior engineers grow through technical guidance and practical code reviews.
 
